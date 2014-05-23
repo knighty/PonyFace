@@ -1,0 +1,134 @@
+<head>
+
+ 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+ 	<script src="js/scripts.js"></script>
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<div class="editor">
+
+		<div class="editor-top">
+			<div class="toolbar">
+				<!--<label>Download</label>
+				<button onclick="Download( 500 )">500 x 500px</button>
+				<button onclick="Download( 1000 )">1,000 x 1,000px</button>
+				<button onclick="Download( 2000 )">2,000 x 2,000px</button>
+				<button onclick="Download( 5000 )">5,000 x 5,000px</button>-->
+				<div class="title"><a href="">PonyFace</a></div>
+				<ul>
+					<li><button>New</button></li>
+					<li><button>Load</button></li>
+					<li><button>Save</button></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="editor-center">			
+			<div class="property-editor">
+				<ul class="editor-tab-bar">
+					<li data-tab="body">Body</li>
+					<li data-tab="mane" class="selected">Mane</li>
+					<li data-tab="eyes">Eyes</li>
+					<li data-tab="mouth">Mouth</li>
+					<li data-tab="accessories">Accessories</li>
+				</ul>
+
+				<form id="creator">
+
+					<ul class="editor-tabs">
+
+						<li data-tab="mane">
+
+							<div class="input">
+								<div id="mane"></div>
+							</div>
+
+							<div class="input">
+								<div class="hairColorInput">
+									<label>Hair Color 1</label> <input id="hairColor1" type="color" value="#f5efb3" />
+								</div>
+								<div class="hairColorInput">
+									<label>Hair Color 2</label> <input id="hairColor2" type="color" value="#000000" />
+								</div>
+							</div>
+
+						</li>
+
+						<li data-tab="body" class="hidden">
+							<div class="input">
+								<label>Body Color</label> <input id="bodyColor" type="color" value="#faba61" />
+							</div>
+
+							<div class="input">
+								<label>Horn</label> <select id="horn" value="0"></select>
+							</div>
+						</li>
+
+						<li data-tab="eyes" class="hidden">
+							<div class="input">
+								<label>Eye Top</label> <input id="eyeColorTop" type="color" value="#570030" />
+								<br />
+								<label>Eye Bottom</label> <input id="eyeColorBottom" type="color" value="#c6006f" />
+								<br />
+								<label>Iris Size</label> <input type="range" id="irisSize" min="0" max="1" value="0.8" step="0.05" />
+							</div>
+							
+							<div class="input">
+								<div id="eyeLid"></div>
+							</div>
+
+							<div class="input">
+								<div id="eyeBottom"></div>
+							</div>
+						</li>
+
+						<li data-tab="mouth" class="hidden">		
+							<div class="input">
+								<div id="mouth"></div>
+							</div>
+						</li>
+
+						<li data-tab="accessories" class="hidden">		
+							<div class="input">
+								<label>Accessories</label> <button onclick="return AddAccessory( )">Add Accessory</button>
+								<div id="accessories">
+									
+								</div>
+							</div>
+
+							<div class="input">
+								<input id="url" type="text" style="width:100%"/>
+								<br /><a href="#" id="urlLink"></a>
+							</div>
+						</li>
+					</ul>
+				</form>
+
+				<b>Pony List ( Body colour, Hair colour )</b>
+				<ol>
+					<li>Applejack ( #faba61 #f5efb3 )</li>
+					<li>Rarity ( #f0f2f3 #5e51a3 )</li>
+					<li>Twilight Sparkle ( #d4a4e8 #273771 )</li>
+					<li>Pinkie Pie ( #f9b8d2 #f0438c )</li>
+					<li>Fluttershy ( #fff798 #f9b8ce )</li>
+					<li>Rainbow Dash ( #9dd9f8, #0193cf )</li>
+					<li>Celestia</li>
+					<li>Princess Luna</li>
+					<li>Derpy Hooves</li>
+				</ol>
+			</div>
+
+			<div class="preview-pane">
+				<iframe id="creatorPreview" src="mare.svg" style="height:100%;"></iframe>
+			</div>
+		</div>
+
+		<div class="editor-footer">
+			Code and assets mostly by knighty (Most art is traced from too many sources to list)
+		</div>
+	</div>
+
+</body>

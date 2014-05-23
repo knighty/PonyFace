@@ -1,0 +1,176 @@
+//
+// Mixins
+//
+
+@mixin user-select( $value )
+{
+	-webkit-touch-callout: $value;
+	-webkit-user-select: $value;
+	-khtml-user-select: $value;
+	-moz-user-select: $value;
+	-ms-user-select: $value;
+	user-select: $value;
+}
+
+@mixin rounded($radius)
+{
+	border-radius:				$radius;
+}
+
+@mixin rounded-seperate($top-left, $top-right, $bottom-right, $bottom-left)
+{
+	border-top-left-radius: $top-left;
+	border-top-right-radius: $top-right;
+	border-bottom-right-radius: $bottom-right;
+	border-bottom-left-radius: $bottom-left;
+}
+
+@mixin rounded-left( $radius )
+{
+	border-top-left-radius: $radius;
+	border-bottom-left-radius: $radius;
+}
+
+@mixin rounded-right( $radius )
+{
+	border-top-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+}
+
+@mixin rounded-top( $radius )
+{
+	border-top-left-radius: $radius;
+	border-top-right-radius: $radius;
+}
+
+@mixin rounded-bottom( $radius )
+{
+	border-bottom-left-radius: $radius;
+	border-bottom-right-radius: $radius;
+}
+
+@mixin transition($property,$time:0.2s)
+{
+	-webkit-transition:		$property $time;
+	transition:				$property $time;
+}
+
+@mixin transition-vendor($property,$time:0.2s)
+{
+	-webkit-transition:		-webkit-$property $time;
+	transition:				$property $time;
+}
+
+@mixin transition-color-fast
+{
+	-webkit-transition:border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s;
+	transition:border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+@mixin gradient-vertical-img( $start, $end, $img )
+{
+	background: $start; 
+	background: url( $img ), -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start), color-stop(100%,$end)); 
+	background: url( $img ), -webkit-linear-gradient(top,  $start 0%,$end 100%);
+	background: url( $img ), linear-gradient(to bottom,  $start 0%,$end 100%);
+}
+
+@mixin gradient-vertical( $start, $end, $stop : 100%, $reverse : false, $img : "" )
+{
+	background: $start; 
+	@if ( $reverse )
+	{
+		@if( $img != "" )
+		{
+			background: url( $img ), -webkit-gradient(linear, left top, left bottom, color-stop($stop,$start), color-stop(100%,$end)); 
+			background: url( $img ), -webkit-linear-gradient(top,  $start $stop,$end 100%);
+			background: url( $img ), linear-gradient(to bottom,  $start $stop,$end 100%);
+		}
+		@else
+		{
+			background: -webkit-gradient(linear, left top, left bottom, color-stop($stop,$start), color-stop(100%,$end)); 
+			background: -webkit-linear-gradient(top,  $start $stop,$end 100%);
+			background: linear-gradient(to bottom,  $start $stop,$end 100%);
+		}
+		
+	}
+	@else
+	{
+		@if( $img != "" )
+		{
+			background: url( $img ), -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start), color-stop($stop,$end)); 
+			background: url( $img ), -webkit-linear-gradient(top,  $start 0%,$end $stop);
+			background: url( $img ), linear-gradient(to bottom,  $start 0%,$end $stop);
+		}
+		@else
+		{
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start), color-stop($stop,$end)); 
+			background: -webkit-linear-gradient(top,  $start 0%,$end $stop);
+			background: linear-gradient(to bottom,  $start 0%,$end $stop);
+		}
+	}
+}
+
+@mixin gradient-vertical-3( $start, $middle, $end, $stop : 50% )
+{
+	background: $start; 
+
+	background: -webkit-gradient(linear, left top, left bottom, $start, $middle, $end ); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  $start 0%,$middle 50%,$end 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  $start 0%,$middle 50%,$end 100%); /* W3C */
+
+}
+
+@mixin gradient-horizontal( $start, $end, $stop: 100%, $reverse: false, $img: "" )
+{
+	background: $start; 
+	@if ( $reverse )
+	{
+		@if( $img != "" )
+		{
+			background: url( $img ), -webkit-gradient(linear, left top, right top, color-stop($stop,$start), color-stop(100%,$end)); 
+			background: url( $img ), -webkit-linear-gradient(left,  $start $stop,$end 100%);
+			background: url( $img ), linear-gradient(to right,  $start $stop,$end 100%);
+		}
+		@else
+		{
+			background: -webkit-gradient(linear, left top, right top, color-stop($stop,$start), color-stop(100%,$end)); 
+			background: -webkit-linear-gradient(left,  $start $stop,$end 100%);
+			background: linear-gradient(to right,  $start $stop,$end 100%);
+		}
+	}
+	@else
+	{
+		@if( $img != "" )
+		{
+			background: url( $img ), -webkit-gradient(linear, left top, right top, color-stop(0%,$start), color-stop($stop,$end)); 
+			background: url( $img ), -webkit-linear-gradient(left,  $start 0%,$end $stop);
+			background: url( $img ), linear-gradient(to right,  $start 0%,$end $stop);
+		}
+		@else
+		{
+			background: -webkit-gradient(linear, left top, right top, color-stop(0%,$start), color-stop($stop,$end)); 
+			background: -webkit-linear-gradient(left,  $start 0%,$end $stop);
+			background: linear-gradient(to right,  $start 0%,$end $stop);
+		}
+	}
+}
+
+@mixin input-textbox( )
+{
+	border-radius:3px;
+	background:#fff;
+	box-shadow:0px 0px 5px rgba(0,0,0,0.1) inset;
+	padding:8px 10px;
+	color:#444;
+	border:1px solid #ccc;
+	outline:none;
+}
+
+@mixin bordered-image( $radius:4px )
+{
+	padding:3px;
+	background:#eee;
+	border:1px solid #aaa;
+	@include rounded( $radius );
+}
